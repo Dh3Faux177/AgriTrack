@@ -1,0 +1,87 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/**
+ * Ionic Dark Mode
+ * -----------------------------------------------------
+ * For more info, please see:
+ * https://ionicframework.com/docs/theming/dark-mode
+ */
+
+/* @import "@ionic/angular/css/palettes/dark.always.css"; */
+/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+@import "@ionic/angular/css/palettes/dark.system.css";
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ion-background-color: #121212;
+    --ion-text-color: white;
+    --status-bar-height: env(safe-area-inset-top);
+  }
+}
+
+body {
+    background-color: var(--ion-background-color);
+    color: var(--ion-text-color);
+    margin-top: var(--status-bar-height, 24px);
+  }
+  
+  ion-toolbar {
+    --background: var(--ion-toolbar-background);
+    --color: var(--ion-toolbar-color);
+  }
+  
+  ion-header {
+    padding-top: env(safe-area-inset-top, 24px); /* fallback included */
+  }
+
+ion-menu ion-content {
+  margin-top: env(safe-area-inset-top, 24px);
+  --padding-top: env(safe-area-inset-top, 24px);
+}
+  
+  html, body, ion-app {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  body.keyboard-is-open ion-app {
+    height: 100% !important;
+  }
+
+  ion-content {
+    margin-top: env(safe-area-inset-top, 24px);
+    --padding-top: var(--status-bar-height, 24px); /* Add padding on top to avoid overlap */
+  }
+
+  /* Make sure the side menu accounts for safe areas on iOS */
+ion-menu {
+  --padding-top: var(--status-bar-height, 24px); /* Adjust for status bar height */
+}
+
+  

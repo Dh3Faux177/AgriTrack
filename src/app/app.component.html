@@ -1,0 +1,33 @@
+<ion-menu side="start" menuId="first" contentId="main-content">
+  <ion-header>
+    <ion-toolbar color="success">
+      <ion-title>AgriTrack</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <!-- Home Page Link -->
+      <ion-item button routerLink="/home" routerDirection="root">
+        <ion-icon slot="start" name="home-outline"></ion-icon>
+        <ion-label>Home</ion-label>
+      </ion-item>
+
+      <!-- To-Do List Link -->
+      <ion-item button routerLink="/todo-list" routerDirection="root">
+        <ion-icon slot="start" name="list-outline"></ion-icon>
+        <ion-label>To-Do List</ion-label>
+      </ion-item>
+
+      <!-- Yield Calculator -->
+      <ion-item button routerLink="/yield-calculator" routerDirection="root">
+        <ion-icon slot="start" name="calculator-outline"></ion-icon>
+        <ion-label>Yield Calculator</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<style>
+</style>
+<!-- Main content -->
+<ion-router-outlet id="main-content"></ion-router-outlet>

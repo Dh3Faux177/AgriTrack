@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="dashboard-content">
+  <ion-grid class="grid-layout">
+    <ion-row class="ion-text-center">
+      <!-- Loop through the gardens array and create cards -->
+      <ion-col size="12" size-md="6" *ngFor="let garden of gardens">
+        <ion-card class="sensor-card" [ngClass]="getTemperatureStatus(garden.temperature)">
+          <ion-card-header>
+            <ion-card-title class="sensor-card-title">
+              <ion-icon name="leaf-outline" class="garden-icon"></ion-icon>
+              <span>{{ garden.name }}</span>
+            </ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            <div class="sensor-data">
+              <!-- Moisture Section -->
+              <div class="data-item moisture">
+                <ion-icon name="water-outline" class="data-icon"></ion-icon>
+                <div class="data-values">
+                  <div class="data-label">Moisture</div>
+                  <div class="data-value">{{ garden.moisture }}%</div>
+                </div>
+              </div>
+
+              <!-- Temperature Section -->
+              <div class="data-item temperature">
+                <ion-icon name="thermometer-outline" class="data-icon"></ion-icon>
+                <div class="data-values">
+                  <div class="data-label">Temperature</div>
+                  <div class="data-value">{{ garden.temperature }}°C</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="actions">
+              <ion-button fill="outline" class="green-outline" (click)="downloadReport(garden.name)">
+                <ion-icon slot="start" name="download-outline"></ion-icon>
+                DOWNLOAD
+              </ion-button>
+              <ion-button fill="solid" class="green-btn" (click)="viewDetails(garden)">
+                <ion-icon slot="start" name="analytics-outline"></ion-icon>
+                DETAILS
+              </ion-button>              
+            </div>            
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <!-- Back Button -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button> <!-- Default back to home if no previous page -->
+    </ion-buttons>
+    <ion-title>Garden Sensor Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Garden Name -->
+  <h2>{{ gardenName }}</h2>
+
+  <!-- Moisture and Temperature Gauges -->
+  <div class="gauges">
+    <div class="gauge">
+      <h3>Moisture</h3>
+      <ngx-gauge [value]="moisture" [min]="0" [max]="100" [size]="150" [type]="'semi'" [gaugeColor]="'#28a745'"></ngx-gauge>
+      <p>{{ moisture }}%</p>
+    </div>
+
+    <!-- Temperature Gauge -->
+    <div class="gauge">
+      <h3>Temperature</h3>
+      <!-- Conditionally pass temperature value to the gauge -->
+      <ngx-gauge *ngIf="temperature !== -1 && !isNotANumber(temperature)"
+                 [value]="temperature"
+                 [min]="0"
+                 [max]="100"
+                 [size]="150"
+                 [type]="'semi'"
+                 [gaugeColor]="'#ff6347'"></ngx-gauge>
+      <!-- Display N/A if temperature is not valid -->
+      <p *ngIf="temperature === -1 || isNotANumber(temperature)">N/A</p>
+      <!-- Display valid temperature -->
+      <p *ngIf="temperature !== -1 && !isNotANumber(temperature)">{{ temperature }}°C</p>
+    </div>    
+  </div>
+
+  <!-- Moisture and Temperature Graphs -->
+  <div class="graphs">
+    <!-- Moisture Graph -->
+    <div class="graph">
+      <h3>Moisture Trend</h3>
+      <canvas id="moistureGraph"></canvas>
+    </div>
+    
+    <!-- Temperature Graph -->
+    <div class="graph">
+      <h3>Temperature Trend</h3>
+      <canvas id="temperatureGraph"></canvas>
+    </div>
+  </div>
+
+  <!-- Summary Section -->
+  <div class="summary">
+    <h3>Summary</h3>
+    <p>{{ gardenSummary }}</p>
+  </div>
+
+  <!-- Generate PDF Button (This button won't change the UI) -->
+  <!-- Print & Download Buttons -->
+  <ion-button expand="full" color="success" (click)="downloadReport()">
+    Download Report
+  </ion-button>  
+</ion-content>

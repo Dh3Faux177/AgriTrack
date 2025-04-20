@@ -1,0 +1,87 @@
+ion-content {
+  --padding-start: 20px;
+  --padding-end: 20px;
+  background-color: #111; // dark background for contrast
+  color: #fff;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #90ee90; // light green
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: #ccc;
+}
+
+.gauges,
+.graphs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+}
+
+.gauge,
+.graph {
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+p {
+  font-size: 14px;
+  color: #aaa;
+  margin-top: 5px;
+}
+
+.summary {
+  border-radius: 10px;
+  padding: 16px;
+  width: 100%;
+  max-width: 500px;
+  margin-top: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  font-size: 15px;
+  color: #d0d0d0;
+  line-height: 1.6;
+}
+
+.summary h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #81c784;
+  margin-bottom: 12px;
+}
+
+ion-button {
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto 40px auto; // top: 20px, bottom: 40px, auto left/right
+  display: block; // make sure it's block for auto margin to work
+}
+
+/* Responsive layout for larger screens */
+@media (min-width: 768px) {
+  .gauges,
+  .graphs {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .graph,
+  .gauge {
+    width: 45%;
+  }
+
+  canvas {
+    height: 300px !important;
+  }
+}

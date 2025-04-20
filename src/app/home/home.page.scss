@@ -1,0 +1,91 @@
+.dashboard-content {
+  .grid-layout {
+    padding: 10px;
+  }
+
+  .sensor-card {
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: var(--sensor-card-bg); /* Dynamic background */
+    color: var(--sensor-card-text); /* Dynamic text color */
+  }
+
+  .sensor-card-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--sensor-title-color); /* Dynamic title color */
+  }
+
+  .data-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .data-values {
+    margin-left: 10px;
+  }
+
+  .data-label {
+    font-size: 14px;
+    color: var(--data-label-color); /* Dynamic label color */
+  }
+
+  .data-value {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--data-value-color); /* Dynamic value color */
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  .action-btn {
+    font-size: 14px;
+    width: 45%;
+  }
+
+  ion-button.action-btn:nth-child(2) {
+    --background: #007bff; /* Blue background */
+    --border-color: #007bff; /* Blue border */
+    --color: white; /* White text */
+  }
+}
+
+.green-btn {
+  --background: #28a745; /* Green background */
+  --border-color: #28a745; /* Green border */
+  --color: white; /* White text */
+  font-size: 14px;
+  width: 45%;
+}
+
+.green-outline {
+  --border-color: #28a745; /* Green border */
+  --color: #28a745; /* Green text */
+  --background: transparent; /* Keep background transparent */
+  font-size: 14px;
+  width: 45%;
+}
+
+/* Dark Mode Variables */
+.dark-theme {
+  --sensor-card-bg: #222; /* Dark card background */
+  --sensor-card-text: white; /* White text for contrast */
+  --sensor-title-color: #28a745; /* Green for titles */
+  --data-label-color: #ddd; /* Light gray for labels */
+  --data-value-color: white; /* White for values */
+}
+
+/* Light Mode Variables */
+.light-theme {
+  --sensor-card-bg: white;
+  --sensor-card-text: black;
+  --sensor-title-color: black;
+  --data-label-color: #666;
+  --data-value-color: black;
+}

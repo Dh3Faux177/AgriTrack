@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Edit Task</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="taskForm" (ngSubmit)="saveTask()">
+    <p class="label">Title</p>
+    <ion-input formControlName="title" required></ion-input>
+
+    <p class="label">Description</p>
+    <ion-textarea formControlName="description"></ion-textarea>
+
+    <!-- Due Date -->
+<ion-item>
+  <ion-label position="stacked">Due Date</ion-label>
+  <ion-datetime
+    formControlName="dueDate"
+    presentation="date"
+    displayFormat="MMM dd, yyyy"
+    placeholder="Select due date"
+    required>
+  </ion-datetime>
+</ion-item>
+
+<!-- Due Time -->
+<ion-item>
+  <ion-label position="stacked">Due Time</ion-label>
+  <ion-datetime
+    formControlName="dueTime"
+    presentation="time"
+    displayFormat="h:mm A"
+    placeholder="Select due time"
+    required>
+  </ion-datetime>
+</ion-item>
+    
+    <!-- Place this outside the flow using slot="fixed" -->
+    <ion-modal trigger="taskDueDate" keep-contents-mounted="true">
+      <ion-datetime
+        id="taskDueDate"
+        presentation="date-time"
+        formControlName="dueDate"
+        show-default-buttons="true"
+        prefer-wheel="true"
+      ></ion-datetime>
+    </ion-modal>
+
+    <p class="label">Priority</p>
+    <ion-radio-group formControlName="priority">
+      <ion-radio value="High">High</ion-radio>
+      <ion-radio value="Medium">Medium</ion-radio>
+      <ion-radio value="Low">Low</ion-radio>
+    </ion-radio-group>
+
+    <p class="label">Category</p>
+    <ion-select formControlName="category">
+      <ion-select-option value="Gardening">Gardening</ion-select-option>
+      <ion-select-option value="Work">Work</ion-select-option>
+      <ion-select-option value="Personal">Personal</ion-select-option>
+    </ion-select>
+
+    <p class="label">Status</p>
+    <ion-segment formControlName="status">
+      <ion-segment-button value="Pending">Pending</ion-segment-button>
+      <ion-segment-button value="Completed">Completed</ion-segment-button>
+    </ion-segment>
+
+    <!-- Optional: Attach File 
+    <p class="label">Attach File</p>
+    <ion-input type="file" (change)="onFileSelected($event)"></ion-input>-->
+
+    <div class="button-group">
+      <ion-button fill="outline" color="success" (click)="cancel()">Cancel</ion-button>
+      <ion-button type="submit" fill="solid" color="success" [disabled]="taskForm.invalid">Save</ion-button>
+    </div>
+  </form>
+</ion-content>

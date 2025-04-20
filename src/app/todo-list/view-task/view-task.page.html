@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="success">
+        <!-- Back Button -->
+        <ion-buttons slot="start">
+          <ion-back-button defaultHref="/todo-list"></ion-back-button> <!-- Default back to home if no previous page -->
+        </ion-buttons>
+    <ion-title>View Task</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="task" class="ion-padding">
+  <h1>{{ task.title }}</h1>
+
+  <p class="label">Description</p>
+  <p>{{ task.description }}</p>
+
+  <p class="label">Due Date</p>
+  <p>{{ task.dueDate | date:'dd MMMM yyyy' }}</p>
+  
+  <p class="label">Due Time</p>
+  <p>{{ task.dueDate | date:'h:mm a' }}</p>
+  
+
+  <p class="label">Priority</p>
+  <ion-radio-group [value]="task.priority">
+    <ion-radio value="High" disabled>High</ion-radio>
+    <ion-radio value="Medium" disabled>Medium</ion-radio>
+    <ion-radio value="Low" disabled>Low</ion-radio>
+  </ion-radio-group>
+
+  <p class="label">Category</p>
+  <ion-input [value]="task.category" readonly></ion-input>
+
+  <p class="label">Attach File</p>
+  <div class="file-placeholder"></div>
+
+  <div class="button-group">
+    <ion-button fill="outline" class="green-outline" (click)="goBack()">Back</ion-button>
+    <ion-button fill="solid" class="green-btn" (click)="editTask()">Edit</ion-button>
+  </div>
+</ion-content>

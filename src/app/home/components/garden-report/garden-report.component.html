@@ -1,0 +1,78 @@
+<div class="modal-container">
+  <div id="reportContent" class="report-content">
+    <!-- Header Section -->
+    <h1>Garden Monitoring Report</h1>
+
+    <!-- Date, Time, and Location Table -->
+    <table>
+      <tr>
+        <th style="width: 30%;">Date</th>
+        <td>{{ currentDate }}</td>
+      </tr>
+      <tr>
+        <th>Time Generated</th>
+        <td>{{ currentTime }}</td>
+      </tr>
+      <tr>
+        <th>Location</th>
+        <td>{{ place }}</td>
+      </tr>
+    </table>
+
+    <!-- Garden Overview Section -->
+    <h3>Garden Overview Section</h3>
+    <table>
+      <tr>
+        <th>Garden Name</th>
+        <td>{{ gardenName }}</td>
+      </tr>
+      <tr>
+        <th>Sensor Used</th>
+        <td>{{ sensorUsed }}</td>
+      </tr>
+    </table>
+
+    <!-- Garden Data Section -->
+    <h3>Garden Data Section</h3>
+    <table>
+      <tr>
+        <th>Type of Data</th>
+        <th>Moisture</th>
+        <th>Temperature</th>
+      </tr>
+      <tr>
+        <th>Raw Data</th>
+        <td>{{ moistureRaw }}</td>
+        <td>{{ temperature }}</td>
+      </tr>
+      <tr>
+        <th>Cleaned Data</th>
+        <td>{{ moistureCleanData }}</td>
+        <td>{{ temperatureCleanData }}</td>
+      </tr>
+    </table>
+
+    <!-- Graph Section -->
+    <h3>Graph Section</h3>
+    <div class="graph-section">
+      <div class="graph">
+        <img [src]="moistureGraph" alt="Moisture Graph">
+      </div>
+      <div class="graph">
+        <img [src]="temperatureGraph" alt="Temperature Graph">
+      </div>
+    </div>
+
+    <!-- Summary Section -->
+    <div class="summary">
+      <h3>Summary</h3>
+      <p>{{ gardenSummary }}</p>
+    </div>
+  </div>
+
+  <!-- Print & Download Buttons -->
+  <div class="print-buttons">
+    <button (click)="printReport()">Print Report</button>
+    <button (click)="closeModal()">Cancel</button>
+  </div>
+</div>

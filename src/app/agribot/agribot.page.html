@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>AgriBot</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="chat-container">
+    <div *ngFor="let message of messages" [ngClass]="{'user-message': message.role === 'user', 'bot-message': message.role === 'bot'}">
+      <strong>{{ message.role === 'user' ? 'You' : 'AgriBot' }}:</strong> {{ message.text }}
+    </div>
+  </div>
+
+  <ion-item>
+    <ion-input [(ngModel)]="userMessage" placeholder="Type your message..." (keyup.enter)="sendMessage()"></ion-input>
+    <ion-button (click)="sendMessage()" color="primary">Send</ion-button>
+  </ion-item>
+</ion-content>

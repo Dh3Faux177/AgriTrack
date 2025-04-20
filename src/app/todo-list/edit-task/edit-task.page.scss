@@ -1,0 +1,39 @@
+h1 {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  .label {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  ion-radio-group {
+    display: flex;
+    flex-direction: row-reverse;  /* Position radio button to the left */
+    align-items: center;         /* Align text and radio button */
+    gap: 10px;                   /* Space between radio button and label */
+  }
+  
+  
+ion-radio {
+  order: 1; /* Ensures radio button is first */
+}
+
+  ion-input, ion-textarea, ion-select {
+    background: #e0e0e0;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  ion-button {
+    flex: 1;
+    margin: 0 5px;
+  }
+  

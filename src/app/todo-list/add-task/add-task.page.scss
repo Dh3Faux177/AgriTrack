@@ -1,0 +1,79 @@
+/* Ensure the radio buttons and labels are properly aligned */
+ion-item {
+    --padding-start: 0;
+    --padding-end: 0;
+  }
+  
+  /* Adjust the margins for buttons for better spacing */
+  ion-button {
+    margin-top: 20px;
+  }
+  
+  /* Styling for the radio buttons group, making them evenly spaced */
+  ion-radio-group {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  /* Styling for the individual radio buttons */
+  ion-radio {
+    margin-right: 10px;
+  }
+  
+  /* Ensure the ion-radio-group items take the full width */
+  ion-radio-group ion-item {
+    width: 100%;
+  }
+  
+  /* Align radio buttons with labels */
+  ion-radio-group .radio-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Add space between the action buttons */
+  .action-buttons {
+    margin-top: 20px;
+  }
+  
+  /* Full width for datetime input */
+  ion-datetime {
+    width: 100%;
+  }
+  
+  /* Full width for select input */
+  ion-select {
+    width: 100%;
+  }
+  
+  /* Label styling: ensure proper alignment and prevent wrapping */
+  ion-label {
+    display: inline-block;
+    width: auto;
+    white-space: nowrap; /* Prevent text from wrapping */
+  }
+  
+  /* Adjust the form content to have proper padding and margin */
+  ion-content {
+    padding: 0 15px; /* Adds padding to the left and right */
+  }
+  
+  /* Style the form container for better center alignment */
+  form {
+    margin: 0 auto;
+    max-width: 600px; /* Adjust max width for better content management */
+    display: block;
+    padding: 20px;
+  }
+  
+  /* Space between each form item */
+  ion-item {
+    margin-bottom: 15px;
+  }
+  
+  /* Add margin to the save button */
+  button {
+    margin-top: 20px;
+  }
+  

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Garden Monitoring Report</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    h1 {
+      color: #333;
+      font-size: 28px;
+      margin: 0;
+      padding: 10px 0;
+      font-weight: bold;
+    }
+    h3 {
+      color: #333;
+      font-size: 20px;
+      margin: 20px 0 10px;
+    }
+    p {
+      margin: 5px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+    }
+    table th, table td {
+      padding: 10px;
+      text-align: left;
+      border: 1px solid #000000;
+    }
+    table th {
+      background-color: #000000;
+      font-weight: bold;
+    }
+    .graph-section {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
+    .graph-section .graph {
+      width: 48%;
+      height: 300px;
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #000000;
+    }
+    .summary {
+      margin-top: 30px;
+      background-color: #f4f4f4;
+      padding: 15px;
+      border: 1px solid #ddd;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 12px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <h1>Garden Monitoring Report</h1>
+  
+  <!-- Date, Time, and Location Table -->
+  <table>
+    <tr>
+      <th>Date</th>
+      <td>{{ currentDate }}</td>
+    </tr>
+    <tr>
+      <th>Time Generated</th>
+      <td>{{ currentTime }}</td>
+    </tr>
+    <tr>
+      <th>Location</th>
+      <td>{{ place }}</td>
+    </tr>
+  </table>
+
+  <!-- Garden Overview Section -->
+  <h3>Garden Overview Section</h3>
+  <table>
+    <tr>
+      <th>Garden Name</th>
+      <td>{{ gardenName }}</td>
+    </tr>
+    <tr>
+      <th>Sensor Used</th>
+      <td>{{ sensorUsed }}</td>
+    </tr>
+  </table>
+
+  <!-- Garden Data Section -->
+  <h3>Garden Data Section</h3>
+  <table>
+    <tr>
+      <th>Type of Data</th>
+      <th>Moisture</th>
+      <th>Temperature</th>
+    </tr>
+    <tr>
+      <th>Raw Data</th>
+      <td>{{ moisture }}</td>
+      <td>{{ temperature }}</td>
+    </tr>
+    <tr>
+      <th>Cleaned Data</th>
+      <td>{{ moistureCleanData }}</td>
+      <td>{{ temperatureCleanData }}</td>
+    </tr>
+  </table>
+
+  <!-- Graph Section -->
+  <h3>Graph Section</h3>
+  <div class="graph-section">
+    <div class="graph"> 
+      <img src="{{ moistureGraph }}" alt="Moisture Graph" style="width: 100%; height: auto;">
+    </div>
+    <div class="graph">     
+      <img src="{{ temperatureGraph }}" alt="Temperature Graph" style="width: 100%; height: auto;">
+    </div>
+  </div>
+
+  <!-- Summary Section -->
+  <div class="summary">
+    <h3>Summary</h3>
+    <p>{{ gardenSummary }}</p>
+  </div>
+
+  <!-- Footer Section -->
+  <div class="footer">
+    <p><strong>Customer Support</strong></p>
+    <p>Email: <a href="mailto:support@gardenmonitoring.com">support@gardenmonitoring.com</a></p>
+    <p>Phone: +1 (800) 123-4567</p>
+    <p>Support Hours: Monday - Friday, 9 AM - 5 PM</p>
+  </div>
+</body>
+</html>

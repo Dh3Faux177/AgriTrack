@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>To Do List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="todo-list-content">
+  <!-- Pending Tasks Section -->
+  <ion-card class="section-header">
+    <ion-card-header>
+      <ion-card-title>Pending</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-grid>
+    <ion-row class="ion-text-center">
+      <!-- Loop through the tasks array and display pending tasks -->
+      <ion-col size="12" *ngFor="let task of tasks.pending">
+        <ion-card class="task-card">
+          <ion-card-header>
+            <ion-card-title>{{ task.title }}</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            <div class="task-details">
+              <p>Due: {{ task.dueDate | date: 'MMM d, y - h:mm a' }}</p>
+              <p>Category: {{ task.category }}</p>
+            </div>
+
+            <div class="task-actions">
+              <ion-button class="green-btn" (click)="viewTask(task)">
+                View
+              </ion-button>
+              <ion-button class="green-outline" (click)="editTask(task)">
+                Edit
+              </ion-button>
+              <ion-button class="green-outline" (click)="deleteTask(task)">
+                Delete
+              </ion-button>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Completed Tasks Section -->
+  <ion-card class="section-header">
+    <ion-card-header>
+      <ion-card-title>Completed</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-grid>
+    <ion-row class="ion-text-center">
+      <!-- Loop through the tasks array and display completed tasks -->
+      <ion-col size="12" *ngFor="let task of tasks.completed">
+        <ion-card class="task-card">
+          <ion-card-header>
+            <ion-card-title>{{ task.title }}</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            <div class="task-details">
+              <p>Due: {{ task.dueDate }}</p>
+              <p>Category: {{ task.category }}</p>
+            </div>
+
+            <div class="task-actions">
+              <ion-button class="green-btn" (click)="viewTask(task)">
+                View
+              </ion-button>
+              <ion-button class="green-outline" (click)="deleteTask(task)">
+                Delete
+              </ion-button>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Floating Action Button to Add New Task -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [routerLink]="['/todo-list/add-task']">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

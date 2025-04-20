@@ -1,0 +1,26 @@
+:root {
+    /* Light Mode Colors */
+    --ion-color-primary: #28a745;  /* Green */
+    --ion-toolbar-background: #28a745;
+    --ion-toolbar-color: black;
+    --ion-background-color: #ffffff;
+    --ion-text-color: #000000;
+    --status-bar-height: env(safe-area-inset-top);
+  }
+  
+  .dark-theme {
+    /* Dark Mode Colors */
+    --ion-color-primary: #28a745;  /* Keep green */
+    --ion-toolbar-background: #1e1e1e;
+    --ion-toolbar-color: white;
+    --ion-background-color: #121212;
+    --ion-text-color: #ffffff;
+  }  
+
+  ion-header {
+    padding-top: var(--status-bar-height);
+  }
+  
+  ion-content {
+    margin-top: var(--status-bar-height);
+  }

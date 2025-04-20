@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Add New Task</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="taskForm" (ngSubmit)="saveTask()">
+
+    <!-- Task Title -->
+    <p class="label">Title</p>
+    <ion-input formControlName="title" placeholder="What is your task?" required></ion-input>
+
+    <!-- Description -->
+    <p class="label">Description</p>
+    <ion-textarea formControlName="description" placeholder="Tell us about your task"></ion-textarea>
+
+    <!-- Due Date -->
+    <ion-item>
+      <ion-label position="stacked">Due Date</ion-label>
+      <ion-datetime
+        formControlName="dueDate"
+        presentation="date"
+        displayFormat="MMM dd, yyyy"
+        placeholder="Select due date"
+        required>
+      </ion-datetime>
+    </ion-item>
+
+    <!-- Due Time -->
+    <ion-item>
+      <ion-label position="stacked">Due Time</ion-label>
+      <ion-datetime
+        formControlName="dueTime"
+        presentation="time"
+        displayFormat="h:mm A"
+        placeholder="Select due time"
+        required>
+      </ion-datetime>
+    </ion-item>
+
+    <!-- Priority -->
+    <p class="label">Priority</p>
+    <ion-radio-group formControlName="priority">
+      <ion-item>
+        <ion-radio slot="start" value="High"></ion-radio>
+        <ion-label>High</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-radio slot="start" value="Medium"></ion-radio>
+        <ion-label>Medium</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-radio slot="start" value="Low"></ion-radio>
+        <ion-label>Low</ion-label>
+      </ion-item>
+    </ion-radio-group>
+
+    <!-- Category -->
+    <p class="label">Category</p>
+    <ion-select formControlName="category" interface="popover">
+      <ion-select-option value="Gardening">Gardening</ion-select-option>
+      <ion-select-option value="Work">Work</ion-select-option>
+      <ion-select-option value="Household">Household</ion-select-option>
+    </ion-select>
+
+    <!-- Optional: Attach File -->
+    <!-- Uncomment this section if you want to allow file attachment -->
+    <!-- <p class="label">Attach File</p>
+    <ion-input type="file" formControlName="attachment"></ion-input> -->
+
+    <!-- Buttons -->
+    <div class="button-group">
+      <ion-button expand="full" color="primary" (click)="saveTask()">Save</ion-button>
+      <ion-button expand="block" color="medium" (click)="cancel()">Cancel</ion-button>
+    </div>
+  </form>
+</ion-content>
